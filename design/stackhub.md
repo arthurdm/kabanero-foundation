@@ -55,6 +55,12 @@ spec:
         https:
           url: https://github.com/kabanero-io/stacks/releases/download/0.6.0/index.yaml
           skipCertVerification: false  // default is false
+        pipelines:
+        - id: default
+          sha256: 0123456789abcdef
+          https:
+            url: https://github.com/kabanero-io/pipelines/releases/download/0.6.0/default.pipeline.tar.gz
+            skipCertVerification: false   // default is false
       - name: incubator
         https:
           url: https://github.com/kabanero-io/stacks/releases/download/0.7.0/index.yaml
@@ -65,12 +71,6 @@ spec:
             https:
               url: https://github.com/kabanero-io/pipelines/releases/download/0.7.0/default.pipeline.tar.gz
               skipCertVerification: false    // default is false
-    pipelines:
-      - id: default
-        sha256: 0123456789abcdef
-        https:
-          url: https://github.com/kabanero-io/pipelines/releases/download/0.6.0/default.pipeline.tar.gz
-          skipCertVerification: false   // default is false
   triggers:
     - id: default
       sha256: 0123456789abcdef
@@ -95,24 +95,24 @@ metadata:
 spec:
   name: java-microprofile
   versions:
-    - pipelines:
-        - id: default
-          sha256: 0123456789abcdef
-          https:
-            url: https://github.com/kabanero-io/pipelines/releases/download/0.6.0/default.pipeline.tar.gz
-            skipCertVerification: false // default is false
-      version: "0.2.15"
+    - version: "0.2.15"
+      - pipelines:
+          - id: default
+            sha256: 0123456789abcdef
+            https:
+              url: https://github.com/kabanero-io/pipelines/releases/download/0.6.0/default.pipeline.tar.gz
+              skipCertVerification: false // default is false
       desiredState: ""
       images:
         - id: java-microprofile
           image: docker.io/kabanerobeta/java-microprofile
-    - pipelines:
-        - id: default
-          sha256: 0123456789abcdef
-          https:
-            url: https://github.com/kabanero-io/pipelines/releases/download/0.7.0/default.pipeline.tar.gz
-            skipCertVerification: false // default is false
-      version: "0.2.21"
+    - version: "0.2.21"
+      - pipelines:
+          - id: default
+            sha256: 0123456789abcdef
+            https:
+              url: https://github.com/kabanero-io/pipelines/releases/download/0.7.0/default.pipeline.tar.gz
+              skipCertVerification: false // default is false
       desiredState: ""
       images:
         - id: java-microprofile
